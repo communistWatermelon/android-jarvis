@@ -4,6 +4,7 @@ import thread
 import os
 import subprocess
 import ServerCommands
+import MessageQueue
 
 """
 	Start the server, bind the address
@@ -22,7 +23,7 @@ def startServer():
 	while True:
 		client, address = listenSocket.accept()
 		print 'Connecion Address: ', address
-		#sys.stdout = client
+		sys.stdout = MessageQueue.MessageQueue(client)
 		thread.start_new_thread(ServerCommands.getCommands, (client,))
 	listenSocket.close()
 

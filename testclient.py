@@ -12,5 +12,5 @@ while command != "EXIT":
 	command = raw_input()
 	command.rstrip('\r\n')
 	s.sendall(command)
-	#data = s.recv(1024)
-	#print data
+	data = s.recv(1024)
+	print data
